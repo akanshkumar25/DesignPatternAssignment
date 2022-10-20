@@ -22,13 +22,7 @@ public class Buyer extends Person {
 
 	@Override
 	public ProductMenu CreateProductMenu() {
-		String test = "MeatProductMenu";
-		if (test.equalsIgnoreCase("MeatProductMenu")) {
-			return new ProduceProductMenu();
-		} else {
-			return new MeatProductMenu();
-		}
-
+		return theProductMenu;
 	}
 
 }

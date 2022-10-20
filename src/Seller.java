@@ -15,17 +15,13 @@ public class Seller extends Person {
 	@Override
 	public void showMenu() {
 		System.out.println("showing menu selected by seller :");
+		theProductMenu.showMenu();
 
 	}
 
 	@Override
 	public ProductMenu CreateProductMenu() {
-		String test = "ProduceProductMenu";
-		if (test.equalsIgnoreCase("ProduceProductMenu")) {
-			return new ProduceProductMenu();
-		} else {
-			return new MeatProductMenu();
-		}
+		return theProductMenu;
 	}
 
 }

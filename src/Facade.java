@@ -12,7 +12,7 @@ import java.util.*;
 public class Facade {
 	int userType;
 	int nProductCategory;
-	String theProductList;
+	List<Product> theProductList = new ArrayList<>();
 	Person thePerson;
 
 	public void startFacade() {
@@ -20,14 +20,14 @@ public class Facade {
 		createProductList(); // adding products to the map
 		userType = login(new Login());
 		System.out.println(
-				"Please pick a number to choose from available Course Menus \n 1. MeatProduct Menu \n 2. ProduceProduct Menu ");
+				"Please pick a number to choose from available Product Menus \n 1. MeatProduct Menu \n 2. ProduceProduct Menu ");
 		Scanner scan = new Scanner(System.in);
 		nProductCategory = scan.nextInt();
 		// pattern implemented (Bridge implementation and Factory implementation
 		if (nProductCategory == 1) {
-			SelectProduct(new ProduceProductMenu(), userType);
+			SelectProduct(new MeatProductMenu(theProductList), userType);
 		} else if (nProductCategory == 2) {
-			SelectProduct(new MeatProductMenu(), userType);
+			SelectProduct(new ProduceProductMenu(theProductList), userType);
 		} else {
 			System.out.println("Wrong Selection");
 			System.exit(-1);
@@ -62,7 +62,39 @@ public class Facade {
 	}
 
 	public void createProductList() {
+		String productInfoPath = new File("src/resources/ProductInfo.txt")
+				.getAbsolutePath();
+		BufferedReader br = null;
+		try{
+			//create file object
+			File file = new File(productInfoPath);
+			//create BufferedReader object from the File
+			br = new BufferedReader(new FileReader(file));
+			String line = null;
+			//read file line by line
+			while ((line = br.readLine()) != null){
+				String[] parts = line.split(":");
+				//first part is productType , second is productName
+				String productType = parts[0].trim();
+				String productName = parts[1].trim();
+				if(!productType.equals("") && !productName.equals(""))
+				{
+					Product newProduct = new Product();
+					newProduct.setProductCategory(productType);
+					newProduct.setProductName(productName);
+					theProductList.add(newProduct);
+				}
 
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(br != null){
+				try {
+					br.close();
+				}catch(Exception e){};
+			}
+		}
 	}
 
 	public void AttachProductToUser(ProductMenu pm) {

@@ -1,9 +1,19 @@
+import java.util.List;
+
 /**
  * SER-515 MeatProductMenu responsible for bridge pattern and factory pattern
  * 
 
  */
 public class MeatProductMenu extends ProductMenu {
+
+	List<Product> meatProductList;
+
+	public MeatProductMenu(List<Product> theProductList) {
+		meatProductList = theProductList;
+		meatProductList.removeIf(product -> product.productCategory.equals("Produce"));
+
+	}
 
 	@Override
 	public void ShowAddButtons() {
@@ -37,6 +47,6 @@ public class MeatProductMenu extends ProductMenu {
 
 	public void showMenu() {
 		System.out.println("Meat Product Menu ...\n Bridge Pattern for connection used ");
-		System.out.println("use productinfo.txt here");
+		meatProductList.forEach(n -> System.out.println(n.productName));
 	}
 }
