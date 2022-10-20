@@ -35,17 +35,8 @@ public class MeatProductMenu extends ProductMenu {
 
 	}
 
-	public void selectMenu(int USerType) {
+	public void showMenu() {
 		System.out.println("Meat Product Menu ...\n Bridge Pattern for connection used ");
-		Person person;
-		if (USerType == 0) {
-			person = PersonFactory.createObject("Buyer");
-
-		} else
-		{
-			person = PersonFactory.createObject("Seller");
-
-		}
-		person.ShowMenu();
+		System.out.println("use productinfo.txt here");
 	}
 }

@@ -13,6 +13,13 @@ import java.util.Scanner;
  */
 public class Login {
 	int userType;
+	String buyerInfoPath = new File("src/resources/BuyerInfo.txt")
+			.getAbsolutePath();
+	String sellerInfoPath = new File("src/resources/SellerInfo.txt")
+			.getAbsolutePath();
+
+	Map<String, String> buyerInfoMap = getHashMapFromTextFile(buyerInfoPath);
+	Map<String, String> sellerInfoMap = getHashMapFromTextFile(sellerInfoPath);
 
 	Login() {
 		userType = 0;
@@ -61,13 +68,6 @@ public class Login {
 	}
 
 	public int validation(String username, String password) {
-		String buyerInfoPath = new File("src/resources/BuyerInfo.txt")
-				.getAbsolutePath();
-		String sellerInfoPath = new File("src/resources/SellerInfo.txt")
-				.getAbsolutePath();
-
-		Map<String, String> buyerInfoMap = getHashMapFromTextFile(buyerInfoPath);
-		Map<String, String> sellerInfoMap = getHashMapFromTextFile(sellerInfoPath);
 
 		if(buyerInfoMap.containsKey(username) && password.equals(buyerInfoMap.get(username))){
 			System.out.println("Welcome" + username);

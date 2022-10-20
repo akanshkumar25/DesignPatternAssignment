@@ -6,7 +6,7 @@
 public abstract class Person {
 	protected static ProductMenu theProductMenu;
 
-	public abstract void ShowMenu();
+	public abstract void showMenu();
 
 	public abstract ProductMenu CreateProductMenu();
 

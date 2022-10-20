@@ -14,8 +14,9 @@ public class Buyer extends Person {
 	}
 
 	@Override
-	public void ShowMenu() {
-		System.out.println("Buyer Menu items ....");
+	public void showMenu() {
+		System.out.println("showing menu selected by buyer :");
+		theProductMenu.showMenu();
 
 	}
 

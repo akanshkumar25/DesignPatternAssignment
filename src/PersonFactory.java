@@ -11,7 +11,7 @@ public class PersonFactory extends Person {
 	}
 
 	@Override
-	public void ShowMenu() {}
+	public void showMenu() {}
 
 	@Override
 	public ProductMenu CreateProductMenu() {

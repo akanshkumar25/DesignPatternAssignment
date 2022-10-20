@@ -13,8 +13,8 @@ public class Seller extends Person {
 	}
 
 	@Override
-	public void ShowMenu() {
-		System.out.println("Seller Menu items....");
+	public void showMenu() {
+		System.out.println("showing menu selected by seller :");
 
 	}
 

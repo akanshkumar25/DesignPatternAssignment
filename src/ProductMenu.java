@@ -15,6 +15,6 @@ public abstract class ProductMenu {
 
 	public abstract void ShowLabels();
 
-	public abstract void selectMenu(int USerType);
+	public abstract void showMenu();
 
 }

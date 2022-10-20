@@ -1,4 +1,7 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.*;
 
 /**
  * SER-515 Facade class to take care of the facade pattern it calls the classes
@@ -8,22 +11,22 @@ import java.util.Scanner;
 
 public class Facade {
 	int userType;
-	String theSelectProduct;
 	int nProductCategory;
-	int theProductList;
-	int thePerson;
+	String theProductList;
+	Person thePerson;
 
 	public void startFacade() {
 		System.out.println("Facade pattern started \n");
+		createProductList(); // adding products to the map
 		userType = login(new Login());
 		System.out.println(
-				"Select from available Course Menus \n 1. MeatProduct Menu \n 2. ProduceProduct Menu ");
+				"Please pick a number to choose from available Course Menus \n 1. MeatProduct Menu \n 2. ProduceProduct Menu ");
 		Scanner scan = new Scanner(System.in);
-		theSelectProduct = scan.nextLine();
+		nProductCategory = scan.nextInt();
 		// pattern implemented (Bridge implementation and Factory implementation
-		if (theSelectProduct.equalsIgnoreCase("ProduceProduct Menu")) {
+		if (nProductCategory == 1) {
 			SelectProduct(new ProduceProductMenu(), userType);
-		} else if (theSelectProduct.equalsIgnoreCase("MeatProduct Menu")) {
+		} else if (nProductCategory == 2) {
 			SelectProduct(new MeatProductMenu(), userType);
 		} else {
 			System.out.println("Wrong Selection");
@@ -66,7 +69,14 @@ public class Facade {
 	}
 
 	public void SelectProduct(ProductMenu pm, int userType) {
-		pm.selectMenu(userType);
+		if(userType == 0){
+			thePerson = new Buyer(pm);
+
+		}
+		if(userType == 1){
+			thePerson = new Seller(pm);
+		}
+		thePerson.showMenu();
 	}
 
 	public void productOperation() {
