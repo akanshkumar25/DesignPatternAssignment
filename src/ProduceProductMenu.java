@@ -46,7 +46,7 @@ public class ProduceProductMenu extends ProductMenu {
 	}
 
 	public void showMenu() {
-		System.out.println("ProductProduceMenu selected...\n Bridge Pattern for connection used");
+		System.out.println("ProductProduceMenu selected...\nBridge Pattern for connection used");
 		produceProductList.forEach(n -> System.out.println(n.productName));
 
 
