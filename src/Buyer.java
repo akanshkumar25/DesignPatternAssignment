@@ -21,8 +21,12 @@ public class Buyer extends Person {
 	}
 
 	@Override
-	public ProductMenu CreateProductMenu() {
-		return theProductMenu;
+	public ProductMenu CreateProductMenu(int nProductCategory) {
+		if(nProductCategory == 1)
+			return new MeatProductMenu();
+		else {
+			return new ProduceProductMenu();
+		}
 	}
 
 }

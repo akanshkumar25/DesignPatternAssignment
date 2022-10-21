@@ -23,11 +23,11 @@ public class Facade {
 				"Please pick a number to choose from available Product Menus \n 1. MeatProduct Menu \n 2. ProduceProduct Menu ");
 		Scanner scan = new Scanner(System.in);
 		nProductCategory = scan.nextInt();
-		// pattern implemented (Bridge implementation and Factory implementation
-		if (nProductCategory == 1) {
-			SelectProduct(new MeatProductMenu(theProductList), userType);
-		} else if (nProductCategory == 2) {
-			SelectProduct(new ProduceProductMenu(theProductList), userType);
+		// pattern implemented (Bridge implementation and Factory implementation)
+		if (nProductCategory == 1 || nProductCategory == 2) {
+			System.out.println("Factory pattern implemented");
+			Product selectProduct = SelectProduct(nProductCategory, userType);
+			System.out.println("\n Selected Product is:" + selectProduct.getProductName());
 		} else {
 			System.out.println("Wrong Selection");
 			System.exit(-1);
@@ -99,16 +99,31 @@ public class Facade {
 
 	public void AttachProductToUser(ProductMenu pm) {
 	}
+	//factory method implementation
+	public Product SelectProduct(int nProductCategory, int userType) {
 
-	public void SelectProduct(ProductMenu pm, int userType) {
 		if(userType == 0){
-			thePerson = new Buyer(pm);
+			thePerson = new Buyer();
 
 		}
 		if(userType == 1){
-			thePerson = new Seller(pm);
+			thePerson = new Seller();
 		}
-		thePerson.showMenu();
+			ProductMenu productMenu = thePerson.CreateProductMenu(nProductCategory);
+			productMenu.showMenu();
+
+			Scanner scan = new Scanner(System.in);
+			int option = scan.nextInt();
+			if(nProductCategory == 1) {
+
+				theProductList.removeIf(product -> product.productCategory.equals("Produce"));
+
+			}
+			else {
+				theProductList.removeIf(product -> product.productCategory.equals("Meat"));
+			}
+
+			return theProductList.get(option - 1);
 	}
 
 	public void productOperation() {

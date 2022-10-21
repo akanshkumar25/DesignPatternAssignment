@@ -12,6 +12,7 @@ public class Seller extends Person {
 		super(theProductMenu);
 	}
 
+
 	@Override
 	public void showMenu() {
 		System.out.println("showing menu selected by seller :");
@@ -20,8 +21,12 @@ public class Seller extends Person {
 	}
 
 	@Override
-	public ProductMenu CreateProductMenu() {
-		return theProductMenu;
+	public ProductMenu CreateProductMenu(int nProductCategory) {
+		if(nProductCategory == 1)
+			return new MeatProductMenu();
+		else {
+			return new ProduceProductMenu();
+		}
 	}
 
 }

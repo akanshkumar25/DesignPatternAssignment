@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,8 +13,41 @@ public class ProduceProductMenu extends ProductMenu {
 
 	List<Product> produceProductList;
 
-	public ProduceProductMenu(List<Product> theProductList) {
-		produceProductList = theProductList;
+	public ProduceProductMenu() {
+		produceProductList = new ArrayList<>();
+		String productInfoPath = new File("src/resources/ProductInfo.txt")
+				.getAbsolutePath();
+		BufferedReader br = null;
+		try{
+			//create file object
+			File file = new File(productInfoPath);
+			//create BufferedReader object from the File
+			br = new BufferedReader(new FileReader(file));
+			String line = null;
+			//read file line by line
+			while ((line = br.readLine()) != null){
+				String[] parts = line.split(":");
+				//first part is productType , second is productName
+				String productType = parts[0].trim();
+				String productName = parts[1].trim();
+				if(!productType.equals("") && !productName.equals(""))
+				{
+					Product newProduct = new Product();
+					newProduct.setProductCategory(productType);
+					newProduct.setProductName(productName);
+					produceProductList.add(newProduct);
+				}
+
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(br != null){
+				try {
+					br.close();
+				}catch(Exception e){};
+			}
+		}
 		produceProductList.removeIf(product -> product.productCategory.equals("Meat"));
 
 	}
@@ -47,10 +84,9 @@ public class ProduceProductMenu extends ProductMenu {
 
 	public void showMenu() {
 		System.out.println("ProductProduceMenu selected...\nBridge Pattern for connection used");
-		produceProductList.forEach(n -> System.out.println(n.productName));
-
-
-
+		for (int i = 0; i < produceProductList.size(); i++) {
+			System.out.println(i+1 + " " + produceProductList.get(i).getProductName());
+		}
 	}
 
 }

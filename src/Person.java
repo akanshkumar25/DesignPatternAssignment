@@ -8,7 +8,7 @@ public abstract class Person {
 
 	public abstract void showMenu();
 
-	public abstract ProductMenu CreateProductMenu();
+	public abstract ProductMenu CreateProductMenu(int nProductCategory);
 
 	@SuppressWarnings("static-access")
 	Person(ProductMenu theProductMenu) {
