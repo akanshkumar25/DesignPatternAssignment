@@ -53,6 +53,9 @@ public class ProductList extends Reminder {
 	}
 
 
+	public Iterator createIterator() {
+		return this.theProductList.iterator();
+	}
 
 	public Reminder accept(NodeVisitor nodeVisitor) {
 		System.out.println("Product List Reminder ...");

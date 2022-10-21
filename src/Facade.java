@@ -31,6 +31,22 @@ public class Facade {
 			System.out.println("Selected Product is:" + selectProduct.getProductName());
 			System.out.println("Implementing Visitor Pattern....");
 			remind();
+			System.out.println("Implementing Iterator pattern ....");
+			ProductList productList = new ProductList();
+			@SuppressWarnings("rawtypes")
+			Iterator iterate = (Iterator) productList.createIterator();
+			ProductIterator productIterator = new ProductIterator();
+			OfferingList offeringList = new OfferingList();
+			@SuppressWarnings("rawtypes")
+			Iterator iterate2 = (Iterator) offeringList.createIterator();
+			OfferingIterator offeringIterator = new OfferingIterator();
+			while (productIterator.HasNext(iterate)) {
+				System.out.println(productIterator.Next(iterate).getProductName());
+			}
+			while (offeringIterator.HasNext(iterate)) {
+				System.out.println(offeringIterator.Next(iterate));
+			}
+			scan.close();
 		} else {
 			System.out.println("Wrong Selection");
 			System.exit(-1);
