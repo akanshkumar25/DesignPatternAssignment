@@ -26,8 +26,11 @@ public class Facade {
 		// pattern implemented (Bridge implementation and Factory implementation)
 		if (nProductCategory == 1 || nProductCategory == 2) {
 			System.out.println("Factory pattern implemented");
+			System.out.println("Please select a number to select a product :");
 			Product selectProduct = SelectProduct(nProductCategory, userType);
-			System.out.println("\n Selected Product is:" + selectProduct.getProductName());
+			System.out.println("Selected Product is:" + selectProduct.getProductName());
+			System.out.println("Implementing Visitor Pattern....");
+			remind();
 		} else {
 			System.out.println("Wrong Selection");
 			System.exit(-1);
@@ -56,6 +59,9 @@ public class Facade {
 	}
 
 	public void remind() {
+		ReminderVisitor remind = new ReminderVisitor();
+		ProductList productList = new ProductList();
+		productList.accept(remind);
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
@@ -92,7 +98,7 @@ public class Facade {
 			if(br != null){
 				try {
 					br.close();
-				}catch(Exception e){};
+				}catch(Exception e){}
 			}
 		}
 	}
