@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SER-515
+ * Offering  class for Iterator pattern
+ */
 public class Offering {
 
     public Offering(String offeringName) {

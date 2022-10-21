@@ -1,9 +1,8 @@
 import java.util.Iterator;
 
 /**
- * SER-515 Course Iterator to implement iterator pattern
- * 
-
+ * SER-515 Product Iterator to implement iterator pattern
+ *
  */
 
 public class ProductIterator extends ListIterator {

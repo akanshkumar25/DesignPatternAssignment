@@ -1,7 +1,6 @@
 /**
- * SER-515 abstract Course Menu class 
- * 
-
+ * SER-515 abstract Product Menu class
+ *
  */
 public abstract class ProductMenu {
 

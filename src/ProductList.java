@@ -6,9 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * SER-515 Course List class to implement the iterator pattern 
- * 
-
+ * SER-515 Product List class to implement the iterator pattern
+ *
  */
 @SuppressWarnings("rawtypes")
 public class ProductList extends Reminder {

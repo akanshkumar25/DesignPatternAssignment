@@ -1,9 +1,8 @@
 import java.util.Iterator;
 
 /**
- * SER-515 SolutionIterator class for Visitor Pattern
- * 
-
+ * SER-515 OfferingIterator class for Visitor Pattern
+ *
  */
 public class OfferingIterator extends ListIterator {
 	@SuppressWarnings("rawtypes")

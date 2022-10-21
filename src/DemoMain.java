@@ -1,6 +1,6 @@
 
 /**
- * SER-515 Hacs main class to initiate the facade pattern
+ * SER-515 main class to initiate the facade pattern
  *
  */
 public class DemoMain {

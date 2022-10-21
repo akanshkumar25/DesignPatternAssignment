@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * SER-515 SolutionList to store list of solutions implementing the iterator pattern
+ * SER-515 OfferingList Class to store list of Offerings implementing the iterator pattern
  * 
 
  */

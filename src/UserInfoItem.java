@@ -1,7 +1,6 @@
 /**
  * SER-515 User information class
- * 
-
+ *
  */
 public class UserInfoItem {
 

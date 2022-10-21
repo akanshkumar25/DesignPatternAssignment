@@ -6,8 +6,7 @@ import java.util.List;
 
 /**
  * SER-515 ProduceProductMenu responsible for bridge patterns and factory pattern
- * 
-
+ *
  */
 public class ProduceProductMenu extends ProductMenu {
 

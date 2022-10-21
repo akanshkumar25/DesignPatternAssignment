@@ -1,3 +1,9 @@
+
+/**
+ * SER-515 ProductClass responsible for Storing Products
+ *
+ */
+
 public class Product {
     String productCategory;
     String productName;

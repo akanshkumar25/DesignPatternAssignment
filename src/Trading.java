@@ -1,7 +1,6 @@
 /**
- * SER-515 Assignment class responsible for implementing visitor pattern
- * 
-
+ * SER-515 Trading class responsible for implementing visitor pattern
+ *
  */
 
 public class Trading extends Reminder {

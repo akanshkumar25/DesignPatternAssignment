@@ -1,7 +1,6 @@
 /**
  * SER-515
- * Person abstract class  
-
+ * Person abstract class
  */
 public abstract class Person {
 	protected static ProductMenu theProductMenu;
